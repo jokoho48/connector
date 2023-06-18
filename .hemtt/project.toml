@@ -1,0 +1,23 @@
+name = "connector"
+author = "Joko"
+prefix = "jk"
+mainprefix = "z"
+
+[version]
+path = "addons/connector/script_version.hpp" # Default
+
+major = 1 # Overrides path when set
+minor = 0
+patch = 0
+build = 6 # Optional
+
+git_hash = 0 # Default: 8
+
+[files]
+include = [
+    "connector.dll",
+    "connector_x64.dll"
+]
+
+[asc]
+enabled = true
