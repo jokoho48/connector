@@ -1,1 +1,1 @@
-"connector" callExtension ["preload", []];
+"connector" callExtension ["resolve", []];

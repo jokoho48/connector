@@ -5,12 +5,7 @@ use reqwest::blocking::Client;
 fn init() -> Extension {
     Extension::build()
         .command("resolve", resolve)
-        .command("preload", preload)
         .finish()
-}
-
-pub fn preload() -> &'static str {
-    "success"
 }
 
 pub fn resolve() -> String {
