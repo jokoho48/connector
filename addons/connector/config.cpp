@@ -12,7 +12,7 @@ class CfgMainMenuSpotlight {
         text = "";
         textIsQuote = 0;
         picture = "\z\connector\addons\connector\logo_ca.paa";
-        action = "connectToServer parseSimpleArray (('connector' callExtension ['resolve', []]) select 0);";
+        action = "connectToServer parseSimpleArray (('connector' callExtension ['resolve', [0]]) select 0);";
         actionText = "Connect to the Server!";
         condition = "true";
     };

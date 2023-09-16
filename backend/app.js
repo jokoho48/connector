@@ -1,9 +1,14 @@
 const express = require("express");
 const slowDown = require('express-slow-down');
 const rateLimit = require('express-rate-limit');
-var cors = require('cors');
+const cors = require('cors');
+
+require('dotenv').config();
+
 const app = express();
 const port = process.env.PORT || 3001;
+
+const servers = JSON.parse(process.env.SERVER_DATA || "[\"['127.0.0.1', 2302, 'password1234']\"]")
 
 app.enable("trust proxy"); // only if you're behind a reverse proxy (Heroku, Bluemix, AWS if you use an ELB, custom Nginx setup, etc)
 
@@ -37,7 +42,7 @@ app.get("/", (req, res) => {
         res.status(401).send("sorry, you are not authorized");
         return;
     }
-    res.status(200).send(process.env.SERVER_DATA || '["127.0.0.1", 2402, "password1234"]');
+    res.status(200).send(servers[req.headers['server_index']]);
 });
 
 app.get("/healthz", (req, res) => {

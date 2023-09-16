@@ -11,11 +11,13 @@ Connector is a mod that needs to be customised for every community, you need to 
 
 ## Steps
 - Host the Backend on some type of Service like Heroku or Render or Server (anything that supports Nodejs with Express)
-- Set SECRET_KEY and SERVER_DATA in the Enviroment Variabes on that system
+- Copy EXAMPLE.env to .env and fill in the required information or
+    Set SECRET_KEY, SERVER_DATA and Port PORT the Enviroment Variabes on that system
 - Add the SECRET_KEY in the file src/lib.rs to the same
-- Add Server URL in the file src/lib.rs to the same
+- Add Server URL (with port if needed) in the file src/lib.rs to the same
 - Build the x64 Extension via `cargo make release`
 - Build the Mod via `hemtt release`
+- If you use multible servers you need to set the Index of the server to the extension in the config
 
 ## Special Thanks
 - Brett for his awesome Tools with HEMTT and arma-rs
