@@ -5,12 +5,13 @@ Connector is a small mod that is suppose to fetch server IPs from a Server so th
 Connector is a mod that needs to be customised for every community, you need to follow the following steps
 
 ## Required Tools
-- hemtt (https://github.com/BrettMayson/HEMTT)
-- rust (https://www.rust-lang.org/)
-- cargo-make (https://docs.rs/cargo-make/latest/cli/)
+- [hemtt](https://github.com/BrettMayson/HEMTT)
+- [rust](https://www.rust-lang.org)
+- [cargo-make](https://docs.rs/cargo-make/latest/cli)
+- [NodeJs](https://nodejs.org/en) (when using a vServer or similar)
 
 ## Steps
-- Host the Backend on some type of Service like Heroku or Render or Server (anything that supports Nodejs with Express)
+- Host the Backend on some type of Service like Heroku or Render or vServer (anything that supports Nodejs with Express)
 - Copy EXAMPLE.env to .env and fill in the required information or
     Set SECRET_KEY, SERVER_DATA and Port PORT the Enviroment Variabes on that system
 - Add the SECRET_KEY in the file src/lib.rs to the same
