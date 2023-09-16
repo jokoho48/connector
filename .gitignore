@@ -6,8 +6,9 @@ hemtt.exe
 
 
 # Added by cargo
-
 /target
 backend/node_modules
 releases
 backend/.env
+
+*.dll
