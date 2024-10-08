@@ -12,3 +12,4 @@ releases
 backend/.env
 
 *.dll
+.env

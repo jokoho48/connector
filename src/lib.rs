@@ -13,11 +13,21 @@ pub fn resolve(idx: i32) -> String {
         .header("server_index", idx)
         .send();
     response.map_or_else(
-        |_| "Error".to_string(),
+        |err| err.to_string(),
         |response| {
             response
                 .text()
-                .map_or_else(|_| "Error".to_string(), |text| text)
+                .map_or_else(|err| err.to_string(), |text| text)
         },
     )
+}
+
+#[test]
+fn test_server_0() {
+    let extension = init().testing();
+    let (result, code) = extension.call("resolve", Some(vec!["0".to_string()]));
+    // Assert if result is Empty
+    assert_eq!(code, 0);
+    print!("{}", result);
+    print!("{}", code);
 }

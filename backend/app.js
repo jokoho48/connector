@@ -15,23 +15,23 @@ app.enable("trust proxy"); // only if you're behind a reverse proxy (Heroku, Blu
 app.use(cors());
 
 const speedLimiter = slowDown({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  delayAfter: 25, // allow 100 requests per 15 minutes, then...
-  delayMs: 250 // begin adding 500ms of delay per request above 100:
-  // request # 26 is delayed by  250ms
-  // request # 27 is delayed by  500ms
-  // request # 28 is delayed by 1000ms
-  // etc.
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    delayAfter: 25, // allow 100 requests per 15 minutes, then...
+    delayMs: () => 250 // begin adding 500ms of delay per request above 100:
+    // request # 26 is delayed by  250ms
+    // request # 27 is delayed by  500ms
+    // request # 28 is delayed by 1000ms
+    // etc.
 });
 
 //  apply to all requests
 app.use(speedLimiter);
 
 const limiter = rateLimit({
-	windowMs: 15 * 60 * 1000, // 15 minutes
-	max: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
-	standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
-	legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
+    standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+    legacyHeaders: false, // Disable the `X-RateLimit-*` headers
 });
 
 // Apply the rate limiting middleware to all requests
